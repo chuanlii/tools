@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "小译",
+    "version": "1.0",
+    "description": "鼠标选中文字后显示翻译按钮，并调用API获取翻译结果。",
+    "permissions": ["contextMenus", "scripting", "activeTab"],
+    "host_permissions": ["http://localhost:11434/*", "https://*/"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ]
+  }
+  
